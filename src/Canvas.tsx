@@ -4,7 +4,6 @@ import useCanvas from "./CanvasHook";
 const Canvas = (props: {
   draw: (
     ctx: CanvasRenderingContext2D,
-    frameCount: number,
     canvas: HTMLCanvasElement | null
   ) => void;
 }) => {
