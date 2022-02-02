@@ -72,7 +72,7 @@ function Pong() {
           ballSpeedX = -ballSpeedX;
 
           let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT / 2);
-          ballSpeedY = deltaY * 0.35;
+          ballSpeedY = deltaY * 0.3;
         }
       }
 
@@ -83,7 +83,7 @@ function Pong() {
         } else {
           ballSpeedX = -ballSpeedX;
           let deltaY = ballY - (paddle2Y + PADDLE_HEIGHT / 2);
-          ballSpeedY = deltaY * 0.35;
+          ballSpeedY = deltaY * 0.3;
         }
       }
 
