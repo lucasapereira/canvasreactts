@@ -17,7 +17,7 @@ let showWinningScreen = false;
 
 const PADDLE_HEIGHT = 100;
 const PADDLE_THICKNESS = 10;
-const WINNING_SCORE = 3;
+const WINNING_SCORE = 6;
 
 function Pong() {
   const draw = (
@@ -72,7 +72,7 @@ function Pong() {
           ballSpeedX = -ballSpeedX;
 
           let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT / 2);
-          ballSpeedY = deltaY * 0.3;
+          ballSpeedY = deltaY * 0.35;
         }
       }
 
@@ -83,7 +83,7 @@ function Pong() {
         } else {
           ballSpeedX = -ballSpeedX;
           let deltaY = ballY - (paddle2Y + PADDLE_HEIGHT / 2);
-          ballSpeedY = deltaY * 0.3;
+          ballSpeedY = deltaY * 0.35;
         }
       }
 
@@ -98,6 +98,7 @@ function Pong() {
       ballX = canvas!.width / 2;
       ballY = canvas!.height / 2;
       ballSpeedX = -ballSpeedX;
+      ballSpeedY = 4;
 
       if (player1Score === WINNING_SCORE || player2Score === WINNING_SCORE) {
         showWinningScreen = true;
