@@ -64,29 +64,27 @@ function Pong() {
       computerMovement();
       ballX = ballX + ballSpeedX;
 
-      if (ballX < 0) {
-        if (ballY < paddle1Y || ballY > paddle1Y + PADDLE_HEIGHT) {
+      if(ballX <= PADDLE_THICKNESS && ballY >= paddle1Y && ballY <= paddle1Y + PADDLE_HEIGHT){
+        ballSpeedX = -ballSpeedX;
+
+        let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT / 2);
+        ballSpeedY = deltaY * 0.35;
+      }
+      else if (ballX < 0) {
           player2Score += 1;
           ballReset();
-        } else {
-          ballSpeedX = -ballSpeedX;
-
-          let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT / 2);
-          ballSpeedY = deltaY * 0.35;
-        }
       }
-
-      if (ballX > canvas!.width) {
-        if (ballY < paddle2Y || ballY > paddle2Y + PADDLE_HEIGHT) {
-          player1Score += 1;
-          ballReset();
-        } else {
-          ballSpeedX = -ballSpeedX;
-          let deltaY = ballY - (paddle2Y + PADDLE_HEIGHT / 2);
-          ballSpeedY = deltaY * 0.35;
-        }
+      
+      if(ballX >= canvas!.width - PADDLE_THICKNESS && ballX >= paddle2Y && ballY<=paddle2Y + PADDLE_HEIGHT){
+        ballSpeedX = -ballSpeedX;
+        let deltaY = ballY - (paddle2Y + PADDLE_HEIGHT / 2);
+        ballSpeedY = deltaY * 0.35;
       }
-
+      else if (ballX > canvas!.width) {
+        player1Score += 1;
+        ballReset();
+      }
+      
       ballY = ballY + ballSpeedY;
 
       if (ballY > canvas!.height || ballY < 0) {
